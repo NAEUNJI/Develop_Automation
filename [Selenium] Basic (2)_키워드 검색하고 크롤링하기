@@ -1,0 +1,21 @@
+from selenium import webdriver
+import time
+
+driver = webdriver.Chrome()
+base_url = "https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query="
+keyword = input("검색어를 입력하세요 : ")
+
+url = base_url + keyword
+print(url)
+
+driver.get(url)
+time.sleep(3)
+
+driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+time.sleep(3)
+
+html = driver.page_source
+
+input("press enter to close the browser")
+
+driver.quit()
